@@ -1,0 +1,15 @@
+version: "2"
+services: 
+  redis: 
+    image: redis
+  pyapp: 
+   #build: "."
+    image: amritasthampi/itrainorg-jenkin-dkr
+    deploy:
+      replicas: 2
+    ports: 
+      - "5000:5000"
+    volumes: 
+      - "/PWD:/code"
+    depends_on:
+      - redis
