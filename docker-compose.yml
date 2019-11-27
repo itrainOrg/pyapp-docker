@@ -2,14 +2,15 @@ version: "3"
 services: 
   redis: 
     image: redis
-  pyapp: 
+  web: 
     build: "."
-    #image: amritasthampi/itrainorg-jenkin-dkr
-    deploy:
-      replicas: 2
     ports: 
       - "5000:5000"
     volumes: 
-      - "$PWD:/code"
-    depends_on:
-      - redis
+      - ".:/code"
+ portainer:
+   image: portainer/portainer
+   ports:
+     - "9000:9000"
+   volume:
+     - /var/run/docker.sock:/var/run/docker.sock
