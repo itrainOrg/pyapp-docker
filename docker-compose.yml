@@ -3,8 +3,8 @@ services:
   redis: 
     image: redis
   pyapp: 
-   #build: "."
-    image: amritasthampi/itrainorg-jenkin-dkr
+    build: "."
+    #image: amritasthampi/itrainorg-jenkin-dkr
     deploy:
       replicas: 2
     ports: 
